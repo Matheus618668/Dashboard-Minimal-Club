@@ -8,9 +8,24 @@ import numpy as np
 from scipy import stats
 import re
 
-# Configuração da página
+# --- CONFIGURAÇÕES ---
 st.set_page_config(layout="wide", page_title="Análise CFOP e Mapa do Brasil ICMS")
-)
+
+# Nomes das abas
+SHEET_NAME_SAIDAS = "Saídas"
+SHEET_NAME_ENTRADAS = "Entradas"
+SHEET_NAME_ICMS_CALCULADO = "ICMS CALCULADO MENSAL"  # Nova aba
+
+# URL do GeoJSON para estados brasileiros
+GEOJSON_URL = "https://raw.githubusercontent.com/codeforamerica/click_that_hood/master/public/data/brazil-states.geojson"
+
+# CONSTANTES PARA CONFIGURAÇÕES DE ALERTAS - CORREÇÃO APLICADA
+ALERTA_Z_SCORE = 2.0  # Valor padrão para Z-Score
+ALERTA_CONCENTRACAO = 50  # Valor padrão para concentração (%)
+ALERTA_VARIACAO_PERCENTUAL = 50  # Valor padrão para variação percentual
+ALERTA_VALOR_ABSOLUTO = 50000  # Valor padrão para alerta absoluto
+
+# Resto do seu código continua igual...
 
 # Estilo CSS personalizado
 st.markdown("""
@@ -384,3 +399,4 @@ st.sidebar.markdown("""
 st.markdown("---")
 
 st.markdown(f"*Dashboard desenvolvido com Streamlit - Dados carregados de: {folder_path}*")
+
