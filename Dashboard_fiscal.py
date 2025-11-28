@@ -2,18 +2,14 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
-from datetime import datetime
+import requests
+import json
 import numpy as np
-import os
-from pathlib import Path
-import glob
+from scipy import stats
+import re
 
 # Configuração da página
-st.set_page_config(
-    page_title="Dashboard Fiscal - ICMS",
-    page_icon="📊",
-    layout="wide",
-    initial_sidebar_state="expanded"
+st.set_page_config(layout="wide", page_title="Análise CFOP e Mapa do Brasil ICMS")
 )
 
 # Estilo CSS personalizado
@@ -386,4 +382,5 @@ st.sidebar.markdown("""
 
 # Rodapé
 st.markdown("---")
+
 st.markdown(f"*Dashboard desenvolvido com Streamlit - Dados carregados de: {folder_path}*")
